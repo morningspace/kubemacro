@@ -26,6 +26,7 @@ VERSION="0.1.0"
 
 WORKDIR=~/.kubemacro
 mkdir -p $WORKDIR
+MACRO_SHASUM_URL=https://raw.githubusercontent.com/morningspace/kubemacro-hub/main/macros/macros.sha256
 
 SELECT_OPTIONS_HELP=(
   "-A, --all-namespaces: If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace."
@@ -174,6 +175,9 @@ function run_macro {
         set -- ${POSITIONAL[@]}
         $what ${@:2}
       fi
+
+      # Check updates for the macro
+      check_updates $what
     else
       # The macro not found
       echo 'Unknown macro "'$what'".' && exit 1
@@ -210,6 +214,34 @@ function confirm {
         ;;
     esac
   done
+}
+
+function get_shasum {
+  if command -v shasum >/dev/null 2>&1 ; then
+    command shasum -a 256 $@
+  elif command -v sha256sum >/dev/null 2>&1 ; then
+    command sha256sum $@
+  fi
+}
+
+function check_updates {
+  command -v curl >/dev/null 2>&1 || return 0
+
+  local macro=$1
+
+  curl -s $MACRO_SHASUM_URL -o $WORKDIR/macros.sha256 >/dev/null &
+
+  if [[ -f $WORKDIR/macros.sha256 ]]; then
+    local entry=($(cat $WORKDIR/macros.sha256 | grep $macro))
+    local shasum_remote=${entry[0]}
+    local shasum_local=`get_shasum $WORKDIR/$macro.sh | awk '{print $1}'`
+    if [[ -n $shasum_remote && -n $shasum_local && $shasum_remote != $shasum_local ]]; then
+      echo
+      echo -e "\033[0;33mWarning:\033[0m It appears the macro $macro has been updated by the author."
+      echo -e "To get the latest copy, go to check: https://morningspace.github.io/kubemacro-hub/macros/#/docs/$macro."
+      echo
+    fi
+  fi
 }
 
 run_macro "$@"
