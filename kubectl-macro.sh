@@ -27,16 +27,11 @@ VERSION="0.1.0"
 WORKDIR=~/.kubemacro
 mkdir -p $WORKDIR
 MACRO_SHASUM_URL=https://raw.githubusercontent.com/morningspace/kubemacro-hub/main/macros/macros.sha256
-
-SELECT_OPTIONS_HELP=(
-  "-A, --all-namespaces: If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace."
-  "-n, --namespace='': If present, the namespace scope for this CLI request."
-)
+WORKDIR=../kubemacro-hub/macros/bin
 
 GLOBAL_OPTIONS_HELP=(
   "-h, --help: Print the help information."
-  "-v, --verbose: Enable the verbose log."
-  "-V, --version: Print the version information."
+  "    --version: Print the version information."
 )
 
 # Load macros
@@ -44,7 +39,6 @@ for file in `ls $WORKDIR/*.sh 2>/dev/null`; do . $file; done
 
 function parse_common_args {
   ARG_HELP=''
-  ARG_VERBOSE=''
   ARG_VERSION=''
   POSITIONAL=()
 
@@ -52,9 +46,7 @@ function parse_common_args {
     case "$1" in
     -h|--help)
       ARG_HELP=1; shift ;;
-    -v|--verbose)
-      ARG_VERBOSE=1; shift ;;
-    -V|--version)
+    -v|--version)
       ARG_VERSION=1; shift ;;
     *)
       POSITIONAL+=("$1"); shift ;;
@@ -63,22 +55,29 @@ function parse_common_args {
 }
 
 function kubectl {
-  [[ $ARG_VERBOSE == 1 ]] && echo "kubectl $@" >&2
   command kubectl $@
 }
 
 function list_macros {
   echo "KubeMacro - the kubectl plugin to wrap a set of kubectl calls into one command that can run many times."
   echo
-  echo " Find more information at: https://morningspace.github.io/kubemacro/docs/"
+  echo "  Find more information at: https://morningspace.github.io/kubemacro/docs/"
   echo
 
-  echo "Supported macros:"
+  echo -e "Installed macros:\n"
+
+  local lines
   for file in `ls $WORKDIR/*.sh 2>/dev/null`; do
-    list_macros_in "$file"
+    lines+="`list_macros_in "$file"`\n"
   done
 
-  echo
+  if [[ -n $lines ]]; then
+    echo -e "$lines"
+  else
+    echo -e "  Oops! You haven't installed any macro yet.\n"
+  fi
+
+  echo "Explore and install awesome macros at: https://morningspace.github.io/kubemacro-hub/."
   echo "Use \"kubectl macro <macro> --help\" for more information about a given macro."
 }
 
@@ -87,8 +86,8 @@ function list_macros_in {
 
   for name in "${macros[@]}"; do
     local comment="`sed -n -e "/^#[[:space:]]*@Name:[[:space:]]*$name$/,/^##$/p" $1 | sed -e '1d;$d'`"
-    local description="`echo "$comment" | grep '^#[[:space:]]*@Description:[[:space:]]*' | sed -n 's/^#[[:space:]]*@Description:[[:space:]]*//p'`"
-    printf "  %-36s %s\n" "$name" "$description"
+    local summary="`echo "$comment" | grep '^#[[:space:]]*@Description:[[:space:]]*' | sed -n 's/^#[[:space:]]*@Description:[[:space:]]*//p'`"
+    printf "  %-36s %s\n" "$name" "$summary"
   done
 }
 
@@ -96,19 +95,20 @@ function show_macro_help {
   for file in $0 `ls $WORKDIR/*.sh 2>/dev/null`; do
     local macros=(`cat $file | grep '^#[[:space:]]*@Name:' | sed -n 's/^#[[:space:]]*@Name://p'`)
     if [[ ' '${macros[@]}' ' =~ [[:space:]]+$1[[:space:]]+ ]]; then
-      show_macro_help_in $file $1
+      show_macro_help_in $1 $file
       break
     fi
   done
 }
 
 function show_macro_help_in {
-  local name="$2"
-  local comment="`sed -n -e "/^#[[:space:]]*@Name:[[:space:]]*$name$/,/^##$/p" $1 | sed -e '1d;$d'`"
-  local description="`echo "$comment" | grep '^#[[:space:]]*@Description:[[:space:]]*' | sed -n 's/^#[[:space:]]*@Description:[[:space:]]*//p'`"
+  local name=$1
+  local file=$2
+  local comment="`sed -n -e "/^#[[:space:]]*@Name:[[:space:]]*$name$/,/^##$/p" $file | sed -e '1d;$d'`"
+  local summary="`echo "$comment" | grep '^#[[:space:]]*@Description:[[:space:]]*' | sed -n 's/^#[[:space:]]*@Description:[[:space:]]*//p'`"
   local usage="`echo "$comment" | grep '^#[[:space:]]*@Usage:[[:space:]]*' | sed -n 's/^#[[:space:]]*@Usage:[[:space:]]*//p'`"
-  local options=()
-  local examples=()
+  local options=""
+  local examples=""
   local parsing
 
   while IFS= read -r line; do
@@ -116,31 +116,29 @@ function show_macro_help_in {
     [[ $line =~ ^#[[:space:]]*@Examples:[[:space:]]*$ ]] && parsing=Examples && continue
 
     if [[ $parsing == Options ]] && [[ ! $line =~ ^#$ ]]; then
-      if [[ $line =~ '${SELECT_OPTIONS}' ]]; then
-        options+=("${SELECT_OPTIONS_HELP[@]}")
-      elif [[ $line =~ '${GLOBAL_OPTIONS}' ]]; then
-        options+=("${GLOBAL_OPTIONS_HELP[@]}")
+      if [[ $line =~ '${GLOBAL_OPTIONS}' ]]; then
+        options+="${GLOBAL_OPTIONS_HELP[@]}\n"
       else
-        options+=("`echo $line | sed -n 's/^#[[:space:]]*//p'`")
+        options+="`echo "$line" | sed -n 's/^#[[:space:]]//p'`\n"
       fi
     fi
     
     if [[ $parsing == Examples ]] && [[ ! $line =~ ^#$ && ! $line =~ ^#[[:space:]]*@ ]]; then
-      examples+=("`echo $line | sed -n 's/^#[[:space:]]*//p'`")
+      examples+="`echo "$line" | sed -n 's/^#[[:space:]]//p'`\n"
     fi
   done <<< "$comment"
 
-  [[ -n $description ]] && echo "$description" || echo "$name"
-  [[ -n $usage ]] && echo && echo "Usage: $usage"
+  [[ -n $summary ]] && echo "$name: $summary" || echo "$name"
+  [[ -n $usage ]] && echo -e "\nUsage: $usage"
 
-  if [[ -n ${options[@]} ]]; then
-    echo; echo "Options:"
-    for option in "${options[@]}"; do echo "  $option"; done
+  if [[ -n $options ]]; then
+    echo -e "\nOptions:"
+    echo -e -n "$options"
   fi
 
-  if [[ -n ${examples[@]} ]]; then
-    echo; echo "Examples:"
-    for example in "${examples[@]}"; do echo "  $example"; done
+  if [[ -n $examples ]]; then
+    echo -e "\nExamples:"
+    echo -e -n "$examples"
   fi
 }
 
@@ -180,7 +178,7 @@ function run_macro {
       check_updates $what
     else
       # The macro not found
-      echo 'Unknown macro "'$what'".' && exit 1
+      echo 'Unknown macro "'$what'".' && return 1
     fi
   else
     if [[ $ARG_VERSION == 1 ]]; then
@@ -236,10 +234,10 @@ function check_updates {
     local shasum_remote=${entry[0]}
     local shasum_local=`get_shasum $WORKDIR/$macro.sh | awk '{print $1}'`
     if [[ -n $shasum_remote && -n $shasum_local && $shasum_remote != $shasum_local ]]; then
-      echo
-      echo -e "\033[0;33mWarning:\033[0m It appears the macro $macro has been updated by the author."
-      echo -e "To get the latest copy, go to check: https://morningspace.github.io/kubemacro-hub/macros/#/docs/$macro."
-      echo
+      echo >&2
+      echo -e "\033[0;33mWarning:\033[0m It appears the macro $macro has been updated by its author." >&2
+      echo -e "To get the latest copy, go to check: https://morningspace.github.io/kubemacro-hub/macros/#/docs/$macro." >&2
+      echo >&2
     fi
   fi
 }
