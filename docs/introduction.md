@@ -1,3 +1,5 @@
+# Introduction
+
 ## What is KubeMacro
 
 KubeMacro is designed as a kubectl plugin to wrap a set of kubectl calls into one command that you can run as many times as you want.
@@ -22,7 +24,7 @@ As another example, to delete a namespace that is stuck in `Terminating` status 
 
 All these topics deserve a dedicated document including step by step instructions with caveates.
 
-### Use KubeMacro
+## Use KubeMacro
 
 As you can see, when work with Kubernetes clusters using kubectl to complete some routine tasks, it is common that many of them can not be done by just executing one or two kubectl commands. Some of them are complicated enough that require to be documented.
 
