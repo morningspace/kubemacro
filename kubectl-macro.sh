@@ -27,7 +27,6 @@ VERSION="0.1.0"
 WORKDIR=~/.kubemacro
 mkdir -p $WORKDIR
 MACRO_SHASUM_URL=https://raw.githubusercontent.com/morningspace/kubemacro-hub/main/macros/macros.sha256
-WORKDIR=../kubemacro-hub/macros/bin
 
 GLOBAL_OPTIONS_HELP=(
   "-h, --help: Print the help information."
