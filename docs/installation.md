@@ -1,8 +1,8 @@
-# Installation
+## Installation
 
-## Install KubeMacro
+### Install KubeMacro
 
-### Install as standalone command
+#### Install as standalone command
 
 It is easy to install KubeMacro since it is just a script. You can download it from the KubeMacro git repository then make it executable as below:
 ```shell
@@ -17,7 +17,7 @@ To validate the installation:
 
 If everything works as expected, you will see the KubeMacro general help information.
 
-### Install as kubectl plugin
+#### Install as kubectl plugin
 
 Although KubeMacro can be run as a standalone command from the command line, it is recommended to run it as [kubectl plugin](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/) since it is the most intuitive way to run KubeMacro. To run KubeMacro as a kubectl plugin, the only thing you need to do is to place the `kubectl-macro` script anywhere in your `PATH`. For example:
 ```shell
@@ -31,14 +31,14 @@ kubectl macro
 
 This will give you exactly the same output as above when you run the script in standalone mode.
 
-### Install using Krew
+#### Install using Krew
 
 KubeMacro has been submitted to [krew](https://krew.sigs.k8s.io/) as a kubectl plugin distributed on the centralized [krew-index](https://krew.sigs.k8s.io/plugins/), so you can directly install KubeMacro using krew as well:
 ```shell
 krew install macro
 ```
 
-## Install a macro
+### Install a macro
 
 By default, there is no any macro installed with KubeMacro. By visiting [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), a website that hosts awesome macros shared by other developers, you can explore these macros and install any one as you like. To learn more on this hub, please read [KubeMacro Hub](kubeMacro-hub.md). Certainly you can contribute your own macros to the hub as well. To learn more on how to contribute, please read [Contributing](contributing.md).
 
@@ -65,7 +65,7 @@ You will see the help information that is specific to this macro.
 
 Besides the help information displayed from the command line, you can also check the `Description` tab on the macro page on KubeMacro Hub where it gives you more information on what this macro is for and how to use it.
 
-## Upgrade a macro
+### Upgrade a macro
 
 The macro authors can update their macros for some reasons, for example, to introduce a new feature or to fix a bug. If you have already installed a macro, there needs to be a way for you to get the latest copy if the macro has been updated by the author.
 
