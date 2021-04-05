@@ -30,14 +30,14 @@ kubectl macro
 ```
 
 This will give you exactly the same output as above when you run the script in standalone mode.
-
+<!--
 #### Install using Krew
 
 KubeMacro has been submitted to [krew](https://krew.sigs.k8s.io/) as a kubectl plugin distributed on the centralized [krew-index](https://krew.sigs.k8s.io/plugins/), so you can install KubeMacro directly using krew as well:
 ```shell
 krew install macro
 ```
-
+-->
 ### Install a macro
 
 After install KubeMacro, you need to install specific macro to complete Kubernetes routine tasks. By default, there is no macro pre-bundled with KubeMacro. By visiting [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), a website that hosts awesome macros shared by other developers, you can explore these macros and install any one as you like. To learn more on this, please read [KubeMacro Hub](kubeMacro-hub.md). Certainly you can contribute your own macro to the hub as well. To learn more on how to contribute, please read [Contributing](contributing.md).
