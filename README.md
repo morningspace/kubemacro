@@ -6,4 +6,4 @@
 
 KubeMacro is designed as a kubectl plugin to wrap a set of kubectl calls into one command that you can run as many times as you want.
 
-To learn more on KubeMacro, please read the online [documentation](https://morningspace.github.io/kubemacro/docs/#/).
+To learn more on KubeMacro, please read the KubeMacro [online documentation](https://morningspace.github.io/kubemacro/docs/#/).
