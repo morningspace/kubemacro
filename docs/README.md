@@ -4,7 +4,9 @@
 ![License](https://img.shields.io/badge/license-MIT-000000.svg)
 [![Releases](https://img.shields.io/github/v/release/morningspace/kubemacro.svg)](https://github.com/morningspace/kubemacro/releases)
 
-KubeMacro is designed as a kubectl plugin to wrap a set of kubectl calls into one command that you can run as many times as you want.
+---
+
+> KubeMacro is designed as a kubectl plugin to wrap a set of kubectl calls into one command that you can run as many times as you want.
 
 * To learn more on KubeMacro, please read [Introduction](introduction.md).
 * To learn how to install and run KubeMacro, please read [Getting Started](getting-started.md).
