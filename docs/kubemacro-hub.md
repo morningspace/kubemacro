@@ -14,7 +14,7 @@ After you open [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), y
 
 On the macro page, you will see the macro name and a short description on the top.
 
-Besides that, there are 5 tabs as below. Click each tab and view the description with sample contents.
+Besides that, there are a few tabs as below. Click each tab and view the description with sample contents to understand how they are organized. For the sample contents, it comes from the sample macro introduced in [Writing Macro](writing-macro.md).
 
 <!-- tabs:start -->
 
