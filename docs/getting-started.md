@@ -1,4 +1,4 @@
-## Installation
+## Getting Started
 
 ### Install KubeMacro
 
@@ -33,14 +33,14 @@ This will give you exactly the same output as above when you run the script in s
 
 #### Install using Krew
 
-KubeMacro has been submitted to [krew](https://krew.sigs.k8s.io/) as a kubectl plugin distributed on the centralized [krew-index](https://krew.sigs.k8s.io/plugins/), so you can directly install KubeMacro using krew as well:
+KubeMacro has been submitted to [krew](https://krew.sigs.k8s.io/) as a kubectl plugin distributed on the centralized [krew-index](https://krew.sigs.k8s.io/plugins/), so you can install KubeMacro directly using krew as well:
 ```shell
 krew install macro
 ```
 
 ### Install a macro
 
-By default, there is no any macro installed with KubeMacro. By visiting [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), a website that hosts awesome macros shared by other developers, you can explore these macros and install any one as you like. To learn more on this hub, please read [KubeMacro Hub](kubeMacro-hub.md). Certainly you can contribute your own macros to the hub as well. To learn more on how to contribute, please read [Contributing](contributing.md).
+After install KubeMacro, you need to install specific macro to complete Kubernetes routine tasks. By default, there is no macro pre-bundled with KubeMacro. By visiting [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), a website that hosts awesome macros shared by other developers, you can explore these macros and install any one as you like. To learn more on this, please read [KubeMacro Hub](kubeMacro-hub.md). Certainly you can contribute your own macro to the hub as well. To learn more on how to contribute, please read [Contributing](contributing.md).
 
 Here are some recommanded macros that you can start with:
 
@@ -73,4 +73,4 @@ KubeMacro does not have a concept of macro version, but it can calculate the sha
 
 To make comparison using the shasum value can also gaurantee that the macro you are using is exactly the identical copy published via KubeMacro Hub.
 
-Now that you have learned how to install KubeMacro, install and upgrade macros, it is recommended to open [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), look around for those macros that you are interested in, then pick up one or two macros to install and use. Enjoy yourself!
+Now that you have learned how to install KubeMacro, install and upgrade macros, it is recommended to go to [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), look around for those macros that you are interested in, then pick up one or two macros to install and use. Enjoy yourself!
