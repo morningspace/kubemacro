@@ -4,9 +4,13 @@
 ![License](https://img.shields.io/badge/license-MIT-000000.svg)
 [![Releases](https://img.shields.io/github/v/release/morningspace/kubemacro.svg)](https://github.com/morningspace/kubemacro/releases)
 
+## About KubeMacro
+
 KubeMacro is designed as a kubectl plugin to run kubectl macro (macro for short) that wraps a set of kubectl calls into one command that you can run from the command line as many times as you want.
 
 To learn more on KubeMacro, please read the [online documentation](https://morningspace.github.io/kubemacro/docs/).
+
+## About KubeMacro Hub
 
 Besides KubeMacro, [KubeMacro Hub](https://github.com/morningspace/kubemacro-hub/) is a central place for people to exchange their awesome kubectl macros across the Kubernetes community. You can explore the amazing macros created by other people, or share your own cool macros to other people via KubeMacro Hub.
 
