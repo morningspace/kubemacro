@@ -4,7 +4,7 @@
 
 #### Install as standalone command
 
-It is easy to install KubeMacro since it is just a script. You can download it from the KubeMacro git repository then make it executable as below:
+It is easy to install KubeMacro since it is just a script. You can download it from KubeMacro [GitHub repository](https://github.com/morningspace/kubemacro/) then make it executable as below:
 ```shell
 curl -L https://raw.githubusercontent.com/morningspace/kubemacro/master/kubectl-macro.sh -o kubectl-macro
 chmod +x kubectl-macro
@@ -40,7 +40,9 @@ krew install macro
 -->
 ### Install a macro
 
-After install KubeMacro, you need to install specific macro to complete Kubernetes routine tasks. By default, there is no macro pre-bundled with KubeMacro. By visiting [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), a website that hosts awesome macros shared by other developers, you can explore these macros and install any one as you like. To learn more on this, please read [KubeMacro Hub](kubeMacro-hub.md). Certainly you can contribute your own macro to the hub as well. To learn more on how to contribute, please read [Contributing](contributing.md).
+After install KubeMacro, you need to install specific macro to complete Kubernetes routine tasks. By default, there is no macro pre-bundled with KubeMacro. By visiting [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), a website that hosts awesome macros shared by other people, you can explore these macros and install any one as you like. To learn more on KubeMacro Hub, please read [Using KubeMacro Hub](using-kubemacro-hub.md).
+
+Certainly you can write your own macro and contribute to KubeMacro Hub as well. To learn how to write your own macro, please read [Writing a Macro](writing-a-macro.md). To learn how to contribute, please read the [Contributing](contributing.md) guidance.
 
 Here are some recommanded macros that you can start with:
 
@@ -55,11 +57,11 @@ Here are some recommanded macros that you can start with:
 
 In this document, let's use `get-pod-by-svc` as an example to demonstrate how to install a macro.
 
-To install a macro is fairly easy. You can go to the macro page on KubeMacro Hub, in our case it is [get-pod-by-svc](https://morningspace.github.io/kubemacro-hub/macros/#/docs/get-pod-by-svc), switch to the `Code` tab, follow the instructions to click the download link, or copy the code into a local file, put it in `$HOME/.kubemacro` directory, then you are done. KubeMacro will scan the directory and pick up all macros installed underneath.
+To install a macro is fairly easy. You can go to the macro page on KubeMacro Hub, in your case, [get-pod-by-svc](https://morningspace.github.io/kubemacro-hub/macros/#/docs/get-pod-by-svc), switch to the `Code` tab, follow the instructions on the tab to click the download link, or to copy the code into a local file named as `get-pod-by-svc.sh`, put it in `$HOME/.kubemacro` directory. That's it. KubeMacro will scan the directory and pick up all macros installed underneath.
 
 After install the macro, to validate the installation:
 ```shell
-./kubectl-macro get-pod-by-svc --help
+kubectl macro get-pod-by-svc --help
 ```
 You will see the help information that is specific to this macro.
 
@@ -69,8 +71,8 @@ Besides the help information displayed from the command line, you can also check
 
 The macro authors can update their macros for some reasons, for example, to introduce a new feature or to fix a bug. If you have already installed a macro, there needs to be a way for you to get the latest copy if the macro has been updated by the author.
 
-KubeMacro does not have a concept of macro version, but it can calculate the shasum of a macro for its local copy when it is run, and compare the value for the remote copy hosted on [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/). If it is different, a warning message will be displayed. Then, you can go to check the corresponding macro page on [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/) and decide whether or not to update your local copy to the latest one.
+KubeMacro does not have a concept of macro version, but it will calculate the shasum of a macro for its local copy when it is run, and compare the value for the remote copy hosted on [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/). If it is different, a warning message will be displayed. Then, you can go to check the corresponding macro page on KubeMacro Hub and decide whether or not to update your local copy to the latest one.
 
-To make comparison using the shasum value can also gaurantee that the macro you are using is exactly the identical copy published via KubeMacro Hub.
+To make comparison using the shasum value can also gaurantee that the macro you are using is exactly the identical copy published on KubeMacro Hub.
 
-Now that you have learned how to install KubeMacro, install and upgrade macros, it is recommended to go to [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), look around for those macros that you are interested in, then pick up one or two macros to install and use. Enjoy yourself!
+Now that you have learned how to install KubeMacro, install and upgrade macros, it is recommended to go to [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), look around for the macros that you are interested in, then pick up one or two to install and use. Enjoy yourself!

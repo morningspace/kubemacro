@@ -1,6 +1,6 @@
 * [Introduction](introduction.md)
   * [What is KubeMacro](introduction.md#what-is-kubemacro)
-  * [Use KubeMacro](introduction.md#use-kubemacro)
+  * [Use KubeMacro](introduction.md#using-kubemacro)
 * [Getting Started](getting-started.md)
   * [Install KubeMacro](getting-started.md#install-kubemacro)
   * [Install a macro](getting-started.md#install-a-macro)
