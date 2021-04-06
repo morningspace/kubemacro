@@ -1,8 +1,8 @@
 ## Writing a Macro
 
-KubeMacro does not bundle pre-defined macros. You can explore and install macro shared by other people from [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/). To learn more on this, please read [KubeMacro Hub](kubemacro-hub.md).
+KubeMacro does not bundle pre-defined macros. You can explore and install macro shared by other people from [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/). To learn more on this, please read [Using KubeMacro Hub](using-kubemacro-hub.md).
 
-If the existing macros can not fullfil your requirement, you can also write your own macro. This document will work you through the steps to write a macro and make it recognized by KubeMacro. Meanwhile, you are very welcome to submit your macro to KubeMacro Hub so that other people can be benefit from your work too. To learn more on how to contribute to KubeMacro Hub, please read [Contributing](contributing.md).
+If the existing macros can not fullfil your requirement, you can also write your own macro. This document will work you through the steps to write a macro and make it recognized by KubeMacro. Meanwhile, you are very welcome to submit your macro to KubeMacro Hub so that other people can be benefit from your work too. To learn more on how to contribute to KubeMacro Hub, please read the [Contributing](contributing.md) guidance.
 
 As an example, let's write a macro to print a list of pods with their containers.
 
@@ -24,7 +24,7 @@ To test the macro, run `kubectl macro`, specify the funtion name `get-pod-contai
 kubectl macro get-pod-containers
 ```
 
-You will see nothing returned as expected. Next, let's add something real to the function.
+You will see nothing returned which is expected. Next, let's add something real to the function.
 
 ### Implement the macro
 
@@ -104,8 +104,20 @@ Here is the comment for the `get-pod-containers` macro:
 # @Description: List the pods with their containers.
 #
 # This is a sample macro to demonstrate how to write a macro by your own.
-#
-# It can be used to list a set of pods with their containers.
+# It can be used to list pods and their containers. For example, to list
+# all pods and their containers in `kube-system` namespace:
+# ```shell
+# kubectl macro get-pod-containers -n kube-system
+# NAME                                         CONTAINERS
+# coredns-6955765f44-gtx2q                     coredns
+# coredns-6955765f44-tz96m                     coredns
+# etcd-kind-control-plane                      etcd
+# kindnet-4pzm7                                kindnet-cni
+# kube-apiserver-kind-control-plane            kube-apiserver
+# kube-controller-manager-kind-control-plane   kube-controller-manager
+# kube-proxy-b6wn8                             kube-proxy
+# kube-scheduler-kind-control-plane            kube-scheduler
+# ```
 #
 # @Author: [morningspace](https://github.com/morningspace/)
 # @Usage: kubectl macro get-pod-containers [options]
