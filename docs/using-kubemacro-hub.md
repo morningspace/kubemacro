@@ -1,4 +1,4 @@
-## KubeMacro Hub
+## Using KubeMacro Hub
 
 ### What is KubeMacro Hub
 

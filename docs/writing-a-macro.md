@@ -1,4 +1,4 @@
-## Writing Macro
+## Writing a Macro
 
 KubeMacro does not bundle pre-defined macros. You can explore and install macro shared by other people from [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/). To learn more on this, please read [KubeMacro Hub](kubemacro-hub.md).
 

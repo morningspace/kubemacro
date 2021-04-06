@@ -6,10 +6,10 @@
 
 ---
 
-> KubeMacro is designed as a kubectl plugin to wrap a set of kubectl calls into one command that you can run as many times as you want.
+> KubeMacro is designed as a kubectl plugin to run kubectl macro (macro for short) that wraps a set of kubectl calls into one command that you can run from the command line as many times as you want.
 
-* To learn more on KubeMacro, please read [Introduction](introduction.md).
-* To learn how to install and run KubeMacro, please read [Getting Started](getting-started.md).
-* To learn where to find and install macros, please read [KubeMacro Hub](kubemacro-hub.md).
-* To learn how to write your own macro, please read [Writing Macro](writing-macro.md).
-* To learn how to contribute to KubeMacro and [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), please read [Contributing](contributing.md).
+* To learn more on KubeMacro, please read the [Introduction](introduction.md) to KubeMacro.
+* To learn how to install and run KubeMacro with kubectl macros, please read [Getting Started](getting-started.md).
+* To learn where to find and install awesome kubectl macros, please read [Using KubeMacro Hub](using-kubemacro-hub.md).
+* To learn how to write your own kubectl macro, please read [Writing a Macro](writing-a-macro.md).
+* To learn how to contribute to [KubeMacro](https://morningspace.github.io/kubemacro/) and [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/), please read the [Contributing](contributing.md) guidance.
