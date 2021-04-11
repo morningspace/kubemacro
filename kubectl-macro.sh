@@ -229,7 +229,7 @@ function check_updates {
   curl -s $MACRO_SHASUM_URL -o $WORKDIR/macros.sha256 >/dev/null &
 
   if [[ -f $WORKDIR/macros.sha256 ]]; then
-    local entry=($(cat $WORKDIR/macros.sha256 | grep $macro))
+    local entry=($(cat $WORKDIR/macros.sha256 | grep ' '${macro}$))
     local shasum_remote=${entry[0]}
     local shasum_local=`get_shasum $WORKDIR/$macro.sh | awk '{print $1}'`
     if [[ -n $shasum_remote && -n $shasum_local && $shasum_remote != $shasum_local ]]; then
