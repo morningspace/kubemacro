@@ -2,9 +2,7 @@
 
 ### Contribute to KubeMacro
 
-The source code for KubeMacro lives on [GitHub](https://github.com/morningspace/kubemacro). If you hit a bug, have an idea for a new feature, or want to suggest some other kind of change, welcome to open an issue detailing your problem or your suggestion. Also welcome source code contribution in form of pull requests.
-
-You can also look through the GitHub [issues](https://github.com/morningspace/kubemacro/issues). Anything tagged with [“help wanted”](https://github.com/morningspace/kubemacro/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) is open to you to implement.
+The source code for KubeMacro lives on [GitHub](https://github.com/morningspace/kubemacro). If you hit a bug, have an idea for a new feature, or want to suggest some other kind of change, welcome to open an issue detailing your problem or your suggestion. Also welcome source code contribution in form of pull requests. You can also look through the GitHub [issues](https://github.com/morningspace/kubemacro/issues). Anything tagged with [“help wanted”](https://github.com/morningspace/kubemacro/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) is open to you to implement.
 
 ### Contribute macro to KubeMacro Hub
 
