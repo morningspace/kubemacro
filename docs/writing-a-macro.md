@@ -2,7 +2,7 @@
 
 KubeMacro does not bundle pre-defined macros. You can explore and install macro shared by other people from [KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/). To learn more on this, please read [Using KubeMacro Hub](using-kubemacro-hub.md).
 
-If the existing macros can not fullfil your requirement, you can also write your own macro. This document will work you through the steps to write a macro and make it recognized by KubeMacro. Meanwhile, you are very welcome to submit your macro to KubeMacro Hub so that other people can be benefit from your work too. To learn more on how to contribute to KubeMacro Hub, please read the [Contributing](contributing.md) guidance.
+If the existing macros can not fulfill your requirement, you can also write your own macro. This document will work you through the steps to write a macro and make it recognized by KubeMacro. Meanwhile, you are very welcome to submit your macro to KubeMacro Hub so that other people can be benefit from your work too. To learn more on how to contribute to KubeMacro Hub, please read the [Contributing](contributing.md) guidance.
 
 As an example, let's write a macro to print a list of pods with their containers.
 
@@ -19,7 +19,7 @@ function get-pod-containers {
 }
 ```
 
-To test the macro, run `kubectl macro`, specify the funtion name `get-pod-containers` as the macro name:
+To test the macro, run `kubectl macro`, specify the function name `get-pod-containers` as the macro name:
 ```shell
 kubectl macro get-pod-containers
 ```

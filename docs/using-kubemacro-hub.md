@@ -18,7 +18,7 @@ Besides that, there are a few tabs as below. Click each tab and view the descrip
 
 #### **Description**
 
-?> On `Descriptin` tab, you will see the detailed information on this macro, such as what this macro is for, how to use it, and so on.
+?> On `Description` tab, you will see the detailed information on this macro, such as what this macro is for, how to use it, and so on.
 
 This is a sample macro to demonstrate how to write a macro by your own. It can be used to list pods and their containers. For example, to list all pods and their containers in `kube-system` namespace:
 ```shell
