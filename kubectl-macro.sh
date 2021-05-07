@@ -58,7 +58,7 @@ function kubectl {
 }
 
 function list_macros {
-  echo "KubeMacro - the kubectl plugin to wrap a set of kubectl calls into one command that can run many times."
+  echo "KubeMacro - the kubectl plugin to wrap a set of kubectl calls or Kubernetes API calls into one command that can run many times."
   echo
   echo "  Find more information at: https://morningspace.github.io/kubemacro/docs/"
   echo

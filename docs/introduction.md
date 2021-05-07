@@ -2,7 +2,7 @@
 
 ### What is KubeMacro?
 
-KubeMacro is designed as a kubectl plugin to run kubectl macro (macro for short) that wraps a set of kubectl calls into one command that you can run from the command line as many times as you want.
+KubeMacro is designed as a kubectl plugin to run kube macro (macro for short) that wraps a set of kubectl calls or Kubernetes API calls into one command that you can run from the command line as many times as you want.
 
 Let's see some examples how KubeMacro can help when you work with Kubernetes clusters using kubectl.
 
@@ -28,8 +28,8 @@ All these topics deserve a dedicated document including step by step instruction
 
 As you can see, when work with clusters using kubectl to complete routine tasks, it is common that many of these tasks can not be done by just executing one or two kubectl commands. Some of them are complicated enough that require to be documented.
 
-The idea of KubeMacro is quite straightforward. It encapsulates one or more kubectl calls into an executable block, a shell function, with some best practices embedded, and call it as kubectl macro (or macro for short). Each macro is aimed to address a specific problem and usually one or more kubectl calls will be involved with some additional code logic around in order to complete the task.
+The idea of KubeMacro is quite straightforward. It encapsulates one or more kubectl calls or Kubernetes API calls into an executable block, a shell function, with some best practices embedded, and call it as kube macro (or macro for short). Each macro is aimed to address a specific problem and usually one or more kubectl calls or Kubernetes API calls will be involved with some additional code logic around in order to complete the task.
 
 By using a macro, you can run it as a single unit of work as many times as you want. This allows you to work with your Kubernetes cluster more efficiently and less error prone.
 
-Now that you have learned what KubeMacro is, you may be interested in how to install and run it with kubectl macros by reading [Getting Started](getting-started.md).
+Now that you have learned what KubeMacro is, you may be interested in how to install and run it with kube macros by reading [Getting Started](getting-started.md).

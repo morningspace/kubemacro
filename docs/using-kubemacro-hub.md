@@ -2,7 +2,7 @@
 
 ### What is KubeMacro Hub
 
-[KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/) is designed as a central place for people to exchange their awesome kubectl macros across the Kubernetes community. You can explore the amazing macros created by other people, or share your own cool macros to other people via KubeMacro Hub.
+[KubeMacro Hub](https://morningspace.github.io/kubemacro-hub/) is designed as a central place for people to exchange their awesome kube macros across the Kubernetes community. You can explore the amazing macros created by other people, or share your own cool macros to other people via KubeMacro Hub.
 
 This document will work you through way on how to explore macros hosted on KubeMacro Hub. You can also contribute your own macro by submitting a pull request to the [GitHub repository](http://github.com/morningspace/kubemacro-hub) of KubeMacro Hub. To learn how to write your own macro, please read [Writing a Macro](writing-a-macro.md). To learn how to contribute it to KubeMacro Hub, please read the [Contributing](contributing.md) guidance.
 
