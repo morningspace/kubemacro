@@ -35,7 +35,7 @@ This will give you exactly the same output as above when you run the script in s
 
 KubeMacro has been submitted to [krew](https://krew.sigs.k8s.io/) as a kubectl plugin distributed on the centralized [krew-index](https://krew.sigs.k8s.io/plugins/), so you can install KubeMacro directly using krew as well:
 ```shell
-krew install macro
+kubectl krew install macro
 ```
 -->
 ### Install a macro
